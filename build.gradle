@@ -26,6 +26,10 @@ release {
 // ################## maven ##################
 group='com.bee'
 
+repositories {
+    mavenCentral()
+}
+
 // ################## source sandbox ##################
 sourceSets {
 	main {
@@ -45,5 +49,5 @@ eclipse {
 
 // ################## common dependencies ##################
 dependencies {
-
+	implementation 'info.picocli:picocli:4.6.1'
 }
