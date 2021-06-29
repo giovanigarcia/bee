@@ -54,6 +54,7 @@ public class Node {
 		NODE_MAPPING.put("java.util.regex.Pattern$Loop",			Loop.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Prolog",			Prolog.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Ques",			Ques.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$1",				Range.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$2",				Range.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$6",				Range.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Single",			Single.class);
