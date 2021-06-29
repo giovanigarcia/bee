@@ -56,6 +56,7 @@ public class Node {
 		NODE_MAPPING.put("java.util.regex.Pattern$Ques",			Ques.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$1",				Range.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$2",				Range.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$5",				SquareBracketRange.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$6",				Range.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Single",			Single.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Slice",			Slice.class);
