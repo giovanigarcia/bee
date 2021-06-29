@@ -60,8 +60,7 @@ public class Bee {
 			String line;
 
 			while ((line = br.readLine()) != null) {
-				String anonymousPattern = getAnonymousPattern(line);
-				Bee bee = new Bee(anonymousPattern);
+				Bee bee = new Bee(line);
 				System.out.println(bee.generate());
 			}
 			System.out.flush();
