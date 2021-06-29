@@ -1,4 +1,10 @@
+bin/
+build/
 *.class
+.classpath
+.gradle/
+.project
+.settings
 
 # Package Files #
 *.jar
