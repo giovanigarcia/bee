@@ -41,6 +41,11 @@ public class Bee {
 						.type(Long.class)
 						.build();
 
+	public static final CommandSpec COMMAND_SPEC = CommandSpec.create()
+			.addOption(REGEX_OPTION)
+			.addOption(INPUT_REGEX_FILE_OPTION)
+			.addOption(PATTERN_COUNT_OPTION);
+
 
 	public static final int STAR_AND_PLUS_GENERATION_LIMIT = 100;
 
@@ -78,12 +83,7 @@ public class Bee {
 
 
 	public static void main(final String[] args) throws Exception {
-		final CommandSpec commandSpec = CommandSpec.create();
-		commandSpec.addOption(REGEX_OPTION);
-		commandSpec.addOption(INPUT_REGEX_FILE_OPTION);
-		commandSpec.addOption(PATTERN_COUNT_OPTION);
-
-		final CommandLine parser = new CommandLine(commandSpec);
+		final CommandLine parser = new CommandLine(COMMAND_SPEC);
 		final ParseResult cmd;
 
 		try {
