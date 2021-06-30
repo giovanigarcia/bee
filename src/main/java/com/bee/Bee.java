@@ -9,16 +9,33 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import picocli.CommandLine;
+import picocli.CommandLine.IVersionProvider;
 import picocli.CommandLine.Model.CommandSpec;
 import picocli.CommandLine.Model.OptionSpec;
 import picocli.CommandLine.ParameterException;
+import picocli.CommandLine.ParseResult;
 import picocli.CommandLine.UnmatchedArgumentException;
 
 public class Bee {
 
+	public static final String[] HELP_CLI = { "-h", "--help" };
+	public static final String[] VERSION_CLI = { "-v", "--version" };
+
 	public static final String[] REGEX_CLI = { "-r", "--regex" };
 	public static final String[] INPUT_REGEX_FILE_CLI = { "-i", "--input" };
 	public static final String[] PATTERN_COUNT_CLI = { "-c", "--count" };
+
+
+	public static final OptionSpec HELP_OPTION =
+			OptionSpec.builder(HELP_CLI)
+						.usageHelp(true)
+						.description("Show this help message and exit")
+						.build();
+	public static final OptionSpec VERSION_OPTION =
+			OptionSpec.builder(VERSION_CLI)
+						.versionHelp(true)
+						.description("Print version information and exit")
+						.build();
 
 	public static final OptionSpec REGEX_OPTION =
 			OptionSpec.builder(REGEX_CLI)
@@ -41,6 +58,10 @@ public class Bee {
 						.build();
 
 	public static final CommandSpec COMMAND_SPEC = CommandSpec.create()
+			.name(Bee.class.getPackage().getImplementationTitle())
+			.versionProvider(new ManifestVersionProvider())
+			.addOption(HELP_OPTION)
+			.addOption(VERSION_OPTION)
 			.addOption(REGEX_OPTION)
 			.addOption(INPUT_REGEX_FILE_OPTION)
 			.addOption(PATTERN_COUNT_OPTION);
@@ -83,9 +104,10 @@ public class Bee {
 
 	public static void main(final String[] args) throws Exception {
 		final CommandLine parser = new CommandLine(COMMAND_SPEC);
+		ParseResult cmd = null;
 
 		try {
-			parser.parseArgs(args);
+			cmd = parser.parseArgs(args);
 		} catch (ParameterException e) {
 			parser.getErr().println(e.getMessage());
 
@@ -93,6 +115,17 @@ public class Bee {
 
 			return;
 		}
+
+
+		if (cmd.isUsageHelpRequested()) {
+			parser.usage(parser.getErr());
+			return;
+		}
+		if (cmd.isVersionHelpRequested()) {
+			parser.printVersionHelp(parser.getErr());
+			return;
+		}
+
 
 		Long count = PATTERN_COUNT_OPTION.getValue();
 		if (count == null) {
@@ -131,6 +164,26 @@ public class Bee {
 		} finally {
 			br.close();
 		}
+	}
+
+}
+
+
+class ManifestVersionProvider implements IVersionProvider {
+
+	@Override
+	public String[] getVersion() throws Exception {
+		String implementationTitle = Bee.class.getPackage().getImplementationTitle();
+		if (implementationTitle == null) {
+			implementationTitle = "<unnamed-binary>";
+		}
+
+		String implementationVersion = Bee.class.getPackage().getImplementationVersion();
+		if (implementationVersion == null) {
+			implementationVersion = "<unknown-version>";
+		}
+
+		return new String[] { implementationTitle + "-" + implementationVersion };
 	}
 
 }

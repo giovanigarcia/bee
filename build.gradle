@@ -39,6 +39,16 @@ sourceSets {
 	}
 }
 
+jar {
+	manifest {
+		attributes(
+			"Main-Class": "com.bee.Bee",
+			"Implementation-Title": "bee",
+			"Implementation-Version": project.getVersion()
+		)
+	}
+}
+
 // ################## 'eclipse' plugin ##################
 eclipse {
 	classpath {
