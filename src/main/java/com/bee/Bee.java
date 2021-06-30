@@ -12,7 +12,6 @@ import picocli.CommandLine;
 import picocli.CommandLine.Model.CommandSpec;
 import picocli.CommandLine.Model.OptionSpec;
 import picocli.CommandLine.ParameterException;
-import picocli.CommandLine.ParseResult;
 import picocli.CommandLine.UnmatchedArgumentException;
 
 public class Bee {
@@ -84,10 +83,9 @@ public class Bee {
 
 	public static void main(final String[] args) throws Exception {
 		final CommandLine parser = new CommandLine(COMMAND_SPEC);
-		final ParseResult cmd;
 
 		try {
-			cmd = parser.parseArgs(args);
+			parser.parseArgs(args);
 		} catch (ParameterException e) {
 			parser.getErr().println(e.getMessage());
 
