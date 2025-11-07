@@ -1,0 +1,84 @@
+{
+  "categories": [
+    {
+      "title": "## 🚀 Features",
+      "labels": ["feature", "feat"]
+    },
+    {
+      "title": "## 🐛 Bug Fixes",
+      "labels": ["fix", "bugfix"]
+    },
+    {
+      "title": "## 🧪 Tests",
+      "labels": ["test", "tests"]
+    },
+    {
+      "title": "## 📚 Documentation",
+      "labels": ["docs", "documentation"]
+    },
+    {
+      "title": "## 🔨 Refactoring",
+      "labels": ["refactor", "refactoring"]
+    },
+    {
+      "title": "## 🔧 Maintenance",
+      "labels": ["chore", "ci", "build"]
+    },
+    {
+      "title": "## 📦 Dependencies",
+      "labels": ["deps", "dependencies"]
+    }
+  ],
+  "template": "#{{CHANGELOG}}\n\n**Full Changelog**: #{{RELEASE_DIFF}}",
+  "pr_template": "- #{{TITLE}} by @#{{AUTHOR}} in ##{{NUMBER}}",
+  "empty_template": "- No changes",
+  "label_extractor": [
+    {
+      "pattern": "^(feat|feature)(\\(.+\\))?:",
+      "target": "feature"
+    },
+    {
+      "pattern": "^fix(\\(.+\\))?:",
+      "target": "fix"
+    },
+    {
+      "pattern": "^test(s)?(\\(.+\\))?:",
+      "target": "test"
+    },
+    {
+      "pattern": "^docs?(\\(.+\\))?:",
+      "target": "docs"
+    },
+    {
+      "pattern": "^refactor(\\(.+\\))?:",
+      "target": "refactor"
+    },
+    {
+      "pattern": "^(chore|ci|build)(\\(.+\\))?:",
+      "target": "chore"
+    },
+    {
+      "pattern": "^(deps|dependencies)(\\(.+\\))?:",
+      "target": "deps"
+    }
+  ],
+  "duplicate_filter": {
+    "pattern": "\\[merge\\]",
+    "on_property": "title",
+    "method": "match"
+  },
+  "transformers": [
+    {
+      "pattern": "^(feat|feature|fix|test|tests|docs|refactor|chore|ci|build|deps|dependencies)(\\(.+\\))?:\\s*(.+)",
+      "target": "$3"
+    }
+  ],
+  "max_tags_to_fetch": 200,
+  "max_pull_requests": 200,
+  "max_back_track_time_days": 365,
+  "exclude_merge_branches": [],
+  "sort": {
+    "order": "ASC",
+    "on_property": "mergedAt"
+  }
+}
