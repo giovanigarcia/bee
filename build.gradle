@@ -76,4 +76,15 @@ eclipse {
 // ################## common dependencies ##################
 dependencies {
 	implementation 'info.picocli:picocli:4.6.1'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// ################## test configuration ##################
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+		exceptionFormat "full"
+	}
 }
