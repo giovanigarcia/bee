@@ -57,6 +57,7 @@ public class Node {
 		NODE_MAPPING.put("java.util.regex.Pattern$6",				Range.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Slice",			Slice.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Start",			Start.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$StartS",			StartS.class);
 
 		// JDK 21 character property mappings (CharPredicate-based)
 		NODE_MAPPING.put("java.util.regex.Pattern$BmpCharProperty",		BmpCharProperty.class);
