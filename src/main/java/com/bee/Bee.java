@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 import picocli.CommandLine;
 import picocli.CommandLine.IVersionProvider;
+import picocli.CommandLine.Model.ArgGroupSpec;
 import picocli.CommandLine.Model.CommandSpec;
 import picocli.CommandLine.Model.OptionSpec;
 import picocli.CommandLine.ParameterException;
@@ -56,14 +57,18 @@ public class Bee {
 						.arity("1")
 						.type(Long.class)
 						.build();
+	public static final ArgGroupSpec INPUT_EXCLUSIVE_GROUP =
+			ArgGroupSpec.builder()
+						.addArg(REGEX_OPTION)
+						.addArg(INPUT_REGEX_FILE_OPTION)
+						.build();
 
 	public static final CommandSpec COMMAND_SPEC = CommandSpec.create()
 			.name(Bee.class.getPackage().getImplementationTitle())
 			.versionProvider(new ManifestVersionProvider())
 			.addOption(HELP_OPTION)
 			.addOption(VERSION_OPTION)
-			.addOption(REGEX_OPTION)
-			.addOption(INPUT_REGEX_FILE_OPTION)
+			.addArgGroup(INPUT_EXCLUSIVE_GROUP)
 			.addOption(PATTERN_COUNT_OPTION);
 
 
