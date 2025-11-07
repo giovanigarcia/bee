@@ -1,10 +1,8 @@
-// ################## plugin gradle ##################
 plugins {
 	id 'java'
 	id 'application'
 }
 
-// ################## Java toolchain ##################
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
