@@ -13,28 +13,25 @@ public class Ctype extends Node {
 		Field ctypeField = getFieldFromClass("ctype", originalNode.getClass());
 		Number ctype = (Number) ctypeField.get(this.originalNode);
 
-		Character[] options = new Character[] { ' ', };
-		switch (ctype.intValue()) {
-			case 1024:
+		Character[] options = switch (ctype.intValue()) {
+			case 1024 ->
 				// \D
-				options = new Character[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', };
-				break;
-			case 2048:
+				new Character[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+			case 2048 ->
 				// \S - missing \x0B
-				options = new Character[] { '\t', '\n', '\f', '\r', };
-				break;
-			case 67328:
+				new Character[] { '\t', '\n', '\f', '\r' };
+			case 67328 ->
 				// \W
-				options = new Character[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-											'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-											'u', 'v', 'w', 'x', 'y', 'z',
-											'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-											'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-											'U', 'V', 'W', 'X', 'Y', 'Z',
-											'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-											'_', };
-				break;
-		}
+				new Character[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+								  'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+								  'u', 'v', 'w', 'x', 'y', 'z',
+								  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+								  'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+								  'U', 'V', 'W', 'X', 'Y', 'Z',
+								  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+								  '_' };
+			default -> new Character[] { ' ' };
+		};
 		return "" + options[RNG.nextInt(options.length)];
 	}
 
