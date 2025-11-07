@@ -36,6 +36,7 @@ public class Node {
 	protected static final Random RNG = new Random(System.nanoTime()*1201);
 
 	static {
+		// JDK 6 mappings (kept for compatibility if running on older JDK)
 		NODE_MAPPING.put("java.util.regex.Pattern$Node",			Node.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Begin",			Begin.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$BitClass",		BitClass.class);
@@ -61,6 +62,12 @@ public class Node {
 		NODE_MAPPING.put("java.util.regex.Pattern$Single",			Single.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Slice",			Slice.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Start",			Start.class);
+
+		// JDK 9+ mappings (new internal structure with CharPredicate)
+		NODE_MAPPING.put("java.util.regex.Pattern$BmpCharProperty",		BmpCharProperty.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$BmpCharPropertyGreedy",	BmpCharPropertyGreedy.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$CharProperty",			CharProperty.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$CharPropertyGreedy",		CharPropertyGreedy.class);
 
 		NODE_REVERSE_MAPPING = (Map<Class<? extends Node>, String>) inverseKeysAndValues(NODE_MAPPING);
 	}

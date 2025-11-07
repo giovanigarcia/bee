@@ -10,3 +10,7 @@ build/
 *.jar
 *.war
 *.ear
+
+# Test files
+test_patterns.txt
+comprehensive_test.txt

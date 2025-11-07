@@ -1,27 +1,29 @@
-import org.ajoberstar.grgit.Grgit
-
 // ################## plugin gradle ##################
 plugins {
 	id 'java'
 	id 'eclipse'
-	id 'org.ajoberstar.release-opinion' version '1.6.0'
+	// Removed: id 'org.ajoberstar.release-opinion' version '1.6.0' (not available in newer Gradle)
 	id 'application'
 }
 
 // ################## constants ##################
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 21
+targetCompatibility = 21
 
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
+// ################## JVM flags for module system ##################
+run {
+	// Required for JDK 9+ to access internal java.util.regex classes via reflection
+	jvmArgs = ['--add-opens', 'java.base/java.util.regex=ALL-UNNAMED']
+}
+
 // ################## java ##################
 mainClassName='com.bee.Bee'
 
-// ################## number version  ##################
-release {
-	grgit = Grgit.open(project.file('.'))
-}
+// ################## version  ##################
+version = '2.0.0'
 
 // ################## maven ##################
 group='com.bee'
