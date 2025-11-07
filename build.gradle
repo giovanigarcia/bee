@@ -1,8 +1,6 @@
 // ################## plugin gradle ##################
 plugins {
 	id 'java'
-	id 'eclipse'
-	// Removed: id 'org.ajoberstar.release-opinion' version '1.6.0' (not available in newer Gradle)
 	id 'application'
 }
 
@@ -13,14 +11,12 @@ java {
 	}
 }
 
-// ################## constants ##################
 sourceCompatibility = 21
 targetCompatibility = 21
 
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
-// ################## java ##################
 mainClassName='com.bee.Bee'
 
 // ################## JVM flags for module system ##################
@@ -36,23 +32,11 @@ application {
 	applicationDefaultJvmArgs = jvmArgsForReflection
 }
 
-// ################## version  ##################
-version = '2.0.0'
-
-// ################## maven ##################
+version = '0.2.0'
 group='com.bee'
 
 repositories {
     mavenCentral()
-}
-
-// ################## source sandbox ##################
-sourceSets {
-	main {
-		java {
-			srcDir 'src/main/java'
-		}
-	}
 }
 
 jar {
@@ -65,22 +49,12 @@ jar {
 	}
 }
 
-// ################## 'eclipse' plugin ##################
-eclipse {
-	classpath {
-		downloadSources = true
-		downloadJavadoc = false
-	}
-}
-
-// ################## common dependencies ##################
 dependencies {
 	implementation 'info.picocli:picocli:4.6.1'
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-// ################## test configuration ##################
 test {
 	useJUnitPlatform()
 	jvmArgs = jvmArgsForReflection
