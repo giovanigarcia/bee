@@ -11,7 +11,7 @@ public class Dot extends Node {
 
 	@Override
 	String generate() throws Exception {
-		List<Character> possibleValues = new ArrayList<Character>(256);
+		List<Character> possibleValues = new ArrayList<>(256);
 		for (int i=0; i < 256; ++i) {
 			possibleValues.add((char) i);
 		}

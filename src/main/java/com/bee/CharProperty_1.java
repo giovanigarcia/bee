@@ -19,7 +19,7 @@ public class CharProperty_1 extends Node {
 		Field ctypeField = getFieldFromClass("ctype", _this$0.getClass());
 		Number ctype = (Number) ctypeField.get(_this$0);
 
-		List<Character> possibleValues = new ArrayList<Character>(256);
+		List<Character> possibleValues = new ArrayList<>(256);
 		for (int i=0; i < 256; ++i) {
 			possibleValues.add((char) i);
 		}

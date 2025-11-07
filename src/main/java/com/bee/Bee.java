@@ -92,7 +92,7 @@ public class Bee {
 
 	public static List<String> generateSample(final String pattern, final int count) throws Exception {
 		final Bee b = new Bee(pattern);
-		final List<String> samples = new ArrayList<String>(count);
+		final List<String> samples = new ArrayList<>(count);
 
 		for (int i = 0; i < count; i++) {
 			samples.add(b.generate());
@@ -149,9 +149,7 @@ public class Bee {
 	}
 
 	private static final void handleFile(final String input, final long count) throws Exception {
-		BufferedReader br = null;
-		try {
-			br = new BufferedReader(new FileReader(new File(input)));
+		try (BufferedReader br = new BufferedReader(new FileReader(new File(input)))) {
 			String line;
 
 			while ((line = br.readLine()) != null) {
@@ -161,8 +159,6 @@ public class Bee {
 				}
 			}
 			System.out.flush();
-		} finally {
-			br.close();
 		}
 	}
 

@@ -9,12 +9,12 @@ import java.util.Random;
 public class Node {
 
 	static Map<?, ?> inverseKeysAndValues(Map<?, ?> m) {
-		Map<Object, Object> r = new HashMap<Object, Object>();
-		
+		Map<Object, Object> r = new HashMap<>();
+
 		for (Map.Entry<?, ?> e : m.entrySet()) {
 			r.put(e.getValue(), e.getKey());
 		}
-		
+
 		return r;
 	}
 	static int randomInt(Number low, Number up) {
@@ -31,7 +31,7 @@ public class Node {
 		return RNG.nextInt(u - l + 1) + l;
 	}
 
-	protected static final Map<String, Class<? extends Node>> NODE_MAPPING = new HashMap<String, Class<? extends Node>>();
+	protected static final Map<String, Class<? extends Node>> NODE_MAPPING = new HashMap<>();
 	protected static final Map<Class<? extends Node>, String> NODE_REVERSE_MAPPING;
 	protected static final Random RNG = new Random(System.nanoTime()*1201);
 
@@ -95,7 +95,7 @@ public class Node {
 	}
 
 
-	private static final Map<Object, Object> NODE_CACHE = new HashMap<Object, Object>();
+	private static final Map<Object, Object> NODE_CACHE = new HashMap<>();
 
 	protected void flushCache() {
 		NODE_CACHE.clear();

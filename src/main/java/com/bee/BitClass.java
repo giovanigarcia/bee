@@ -14,7 +14,7 @@ public class BitClass extends Node {
 		Field bitsField = getFieldFromClass("bits", originalNode.getClass());
 		boolean[] bits = (boolean[]) bitsField.get(this.originalNode);
 
-		List<Character> possibleValues = new ArrayList<Character>(256);
+		List<Character> possibleValues = new ArrayList<>(256);
 		for (int i=0; i < bits.length; ++i) {
 			if (bits[i]) {
 				possibleValues.add((char) i);

@@ -36,7 +36,7 @@ public class CharProperty extends Node {
         isMethod.setAccessible(true);
 
         // Find all matching characters
-        List<Character> matches = new ArrayList<Character>();
+        List<Character> matches = new ArrayList<>();
 
         // Test printable ASCII first (most common for . is printable chars)
         for (int i = 32; i < 127; i++) {

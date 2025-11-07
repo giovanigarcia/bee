@@ -36,7 +36,7 @@ public class BmpCharProperty extends Node {
         isMethod.setAccessible(true);
 
         // Find all matching characters in BMP (Basic Multilingual Plane)
-        List<Character> matches = new ArrayList<Character>();
+        List<Character> matches = new ArrayList<>();
 
         // Test printable ASCII first (common case optimization)
         for (int i = 32; i < 127; i++) {
