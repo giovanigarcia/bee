@@ -30,7 +30,7 @@ application {
 	applicationDefaultJvmArgs = jvmArgsForReflection
 }
 
-version = '0.2.0'
+version = 'git describe --tags'.execute().text.trim()
 group='com.bee'
 
 repositories {
