@@ -83,6 +83,7 @@ dependencies {
 // ################## test configuration ##################
 test {
 	useJUnitPlatform()
+	jvmArgs = jvmArgsForReflection
 	testLogging {
 		events "passed", "skipped", "failed"
 		exceptionFormat "full"
