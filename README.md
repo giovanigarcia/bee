@@ -16,9 +16,7 @@ This tool is particularly useful for:
 **Key Features:**
 - Supports most standard regex features (character classes, quantifiers, alternation, groups, anchors)
 - Generates multiple samples from the same pattern
-- Command-line interface with picocli
 - Programmatic API for use in Java applications
-- Configurable limits for unbounded quantifiers (* and +)
 
 ## Requirements
 
@@ -32,13 +30,7 @@ This tool is particularly useful for:
 ./gradlew build
 ```
 
-To create a distribution with start scripts:
-
-```bash
-./gradlew installDist
-```
-
-The distribution will be created in `build/install/bee/` with executable scripts in the `bin/` directory.
+The distribution will be created in `build/distributions/`.
 
 ## Usage Examples
 
@@ -47,7 +39,7 @@ The distribution will be created in `build/install/bee/` with executable scripts
 Generate 5 samples matching a pattern:
 
 ```bash
-./gradlew run --args="'[a-z]{3,5}' -c 5"
+bee -r '[a-z]{3,5}' -c 5
 ```
 
 Example output:
@@ -72,25 +64,13 @@ hello|world
 
 Run:
 ```bash
-./gradlew run --args="patterns.txt"
+bee -i patterns.txt
 ```
 
 This generates one sample for each pattern by default. Use `-c` to generate multiple samples per pattern:
 
 ```bash
-./gradlew run --args="patterns.txt -c 3"
-```
-
-### Using the Distribution Binary
-
-After building the distribution with `./gradlew installDist`:
-
-```bash
-# Single pattern
-build/install/bee/bin/bee '[a-z]{3,5}' -c 5
-
-# Pattern file
-build/install/bee/bin/bee patterns.txt -c 3
+bee -i patterns.txt -c 3
 ```
 
 ### Programmatic Usage
@@ -114,12 +94,15 @@ samples.forEach(System.out::println);
 ### Command-Line Options
 
 ```
-Usage: bee [-hV] [-c=<count>] <input>
-      <input>      Regex pattern or file containing patterns (one per line)
-  -c, --count=<count>
-                   Number of samples to generate per pattern (default: 1)
-  -h, --help       Show this help message and exit.
-  -V, --version    Print version information and exit.
+Usage: bee [-hv] [-c=<count>] [-r=<regex> | -i=<input file>]
+  -c, --count=<count>        The number of patterns to generate for each
+                               regular expression provided (defaults to 1)
+  -h, --help                 Show this help message and exit
+  -i, --input=<input file>   Input file where regular expressions will be
+                               found. One regular expression per line
+  -r, --regex=<regex>        Regular expression used as pattern for text
+                               generation
+  -v, --version              Print version information and exit
 ```
 
 ## How It Works
@@ -136,8 +119,6 @@ This approach works with JDK 21+ which uses `CharPredicate`-based implementation
 ## Compatibility
 
 - **JDK 21+**: Fully supported (uses CharPredicate-based internal structure)
-- **JDK 9 - 20**: May work but not tested
-- **JDK 6 - 8**: Not supported (legacy code removed)
 
 ## Limitations
 
@@ -149,8 +130,8 @@ This approach works with JDK 21+ which uses `CharPredicate`-based implementation
 
 ## Version History
 
-- **v2.0**: Upgraded to Java SE 21 with module system support, removed legacy JDK 6-8 compatibility
-- **v1.0**: Original version for J2SE 6
+- **v0.2.0**: Upgraded to Java SE 21 with module system support, removed legacy JDK 6-8 compatibility
+- **v0.1.0**: Original version for J2SE 6
 
 ## License
 
