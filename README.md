@@ -7,7 +7,7 @@ It might be useful, not without tweaking.
 
 ## Requirements
 
-- Java SE 9 or higher (tested with Java 21)
+- **Java SE 21 or higher** (tested with Java 21)
 - The application uses reflection to access internal `java.util.regex.Pattern` classes
 
 ## Building
@@ -42,10 +42,11 @@ Run:
 
 ## Compatibility
 
-- **JDK 9 - 25**: Fully supported (uses new CharPredicate-based internal structure)
-- **JDK 6 - 8**: Legacy support retained in code (uses old BitClass/Single structure)
+- **JDK 21+**: Fully supported (uses CharPredicate-based internal structure)
+- **JDK 9 - 20**: May work but not tested
+- **JDK 6 - 8**: Not supported (legacy code removed)
 
 ## Version History
 
-- **v2.0**: Upgraded to Java SE 9+ with module system support
+- **v2.0**: Upgraded to Java SE 21 with module system support, removed legacy JDK 6-8 compatibility
 - **v1.0**: Original version for J2SE 6

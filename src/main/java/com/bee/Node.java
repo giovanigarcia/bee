@@ -36,18 +36,14 @@ public class Node {
 	protected static final Random RNG = new Random(System.nanoTime()*1201);
 
 	static {
-		// JDK 6 mappings (kept for compatibility if running on older JDK)
+		// Core Pattern node mappings (JDK 21+)
 		NODE_MAPPING.put("java.util.regex.Pattern$Node",			Node.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Begin",			Begin.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$BitClass",		BitClass.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$BnM",				BnM.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$BnM",			BnM.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Branch",			Branch.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$BranchConn",		BranchConn.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$CharProperty$1",	CharProperty_1.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Curly",			Curly.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$Ctype",			Ctype.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Dollar",			Dollar.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$Dot",				Dot.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$GroupCurly",		GroupCurly.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$GroupHead",		GroupHead.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$GroupTail",		GroupTail.class);
@@ -59,11 +55,10 @@ public class Node {
 		NODE_MAPPING.put("java.util.regex.Pattern$2",				Range.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$5",				SquareBracketRange.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$6",				Range.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$Single",			Single.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Slice",			Slice.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Start",			Start.class);
 
-		// JDK 9+ mappings (new internal structure with CharPredicate)
+		// JDK 21 character property mappings (CharPredicate-based)
 		NODE_MAPPING.put("java.util.regex.Pattern$BmpCharProperty",		BmpCharProperty.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$BmpCharPropertyGreedy",	BmpCharPropertyGreedy.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$CharProperty",			CharProperty.class);
