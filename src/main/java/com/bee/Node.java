@@ -9,12 +9,12 @@ import java.util.Random;
 public class Node {
 
 	static Map<?, ?> inverseKeysAndValues(Map<?, ?> m) {
-		Map<Object, Object> r = new HashMap<Object, Object>();
-		
+		Map<Object, Object> r = new HashMap<>();
+
 		for (Map.Entry<?, ?> e : m.entrySet()) {
 			r.put(e.getValue(), e.getKey());
 		}
-		
+
 		return r;
 	}
 	static int randomInt(Number low, Number up) {
@@ -31,22 +31,19 @@ public class Node {
 		return RNG.nextInt(u - l + 1) + l;
 	}
 
-	protected static final Map<String, Class<? extends Node>> NODE_MAPPING = new HashMap<String, Class<? extends Node>>();
+	protected static final Map<String, Class<? extends Node>> NODE_MAPPING = new HashMap<>();
 	protected static final Map<Class<? extends Node>, String> NODE_REVERSE_MAPPING;
 	protected static final Random RNG = new Random(System.nanoTime()*1201);
 
 	static {
+		// Core Pattern node mappings (JDK 21+)
 		NODE_MAPPING.put("java.util.regex.Pattern$Node",			Node.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Begin",			Begin.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$BitClass",		BitClass.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$BnM",				BnM.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$BnM",			BnM.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Branch",			Branch.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$BranchConn",		BranchConn.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$CharProperty$1",	CharProperty_1.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Curly",			Curly.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$Ctype",			Ctype.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Dollar",			Dollar.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$Dot",				Dot.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$GroupCurly",		GroupCurly.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$GroupHead",		GroupHead.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$GroupTail",		GroupTail.class);
@@ -58,9 +55,15 @@ public class Node {
 		NODE_MAPPING.put("java.util.regex.Pattern$2",				Range.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$5",				SquareBracketRange.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$6",				Range.class);
-		NODE_MAPPING.put("java.util.regex.Pattern$Single",			Single.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Slice",			Slice.class);
 		NODE_MAPPING.put("java.util.regex.Pattern$Start",			Start.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$StartS",			StartS.class);
+
+		// JDK 21 character property mappings (CharPredicate-based)
+		NODE_MAPPING.put("java.util.regex.Pattern$BmpCharProperty",		BmpCharProperty.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$BmpCharPropertyGreedy",	BmpCharPropertyGreedy.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$CharProperty",			CharProperty.class);
+		NODE_MAPPING.put("java.util.regex.Pattern$CharPropertyGreedy",		CharPropertyGreedy.class);
 
 		NODE_REVERSE_MAPPING = (Map<Class<? extends Node>, String>) inverseKeysAndValues(NODE_MAPPING);
 	}
@@ -88,7 +91,7 @@ public class Node {
 	}
 
 
-	private static final Map<Object, Object> NODE_CACHE = new HashMap<Object, Object>();
+	private static final Map<Object, Object> NODE_CACHE = new HashMap<>();
 
 	protected void flushCache() {
 		NODE_CACHE.clear();
