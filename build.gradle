@@ -1,6 +1,7 @@
 plugins {
 	id 'java'
 	id 'application'
+	id 'org.graalvm.buildtools.native' version '0.10.2'
 }
 
 java {
@@ -59,5 +60,28 @@ test {
 	testLogging {
 		events "passed", "skipped", "failed"
 		exceptionFormat "full"
+	}
+}
+
+// ################## GraalVM Native Image Configuration ##################
+graalvmNative {
+	binaries {
+		main {
+			imageName = 'bee'
+			mainClass = 'com.bee.Bee'
+
+			buildArgs.add('--verbose')
+			buildArgs.add('--no-fallback')
+			buildArgs.add('-H:+ReportExceptionStackTraces')
+			buildArgs.add('--initialize-at-build-time=com.bee')
+			buildArgs.add('--initialize-at-run-time=com.bee.Node')
+
+			// Required for accessing java.util.regex internals
+			buildArgs.add('--add-opens=java.base/java.util.regex=ALL-UNNAMED')
+		}
+	}
+
+	metadataRepository {
+		enabled = true
 	}
 }

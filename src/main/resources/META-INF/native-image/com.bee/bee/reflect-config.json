@@ -1,0 +1,320 @@
+[
+  {
+    "name": "java.util.regex.Pattern",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "root", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$Node",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "next", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$Begin",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "java.util.regex.Pattern$BnM",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "java.util.regex.Pattern$Branch",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "atoms", "allowUnsafeAccess": true },
+      { "name": "size", "allowUnsafeAccess": true },
+      { "name": "conn", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$BranchConn",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "java.util.regex.Pattern$Curly",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "atom", "allowUnsafeAccess": true },
+      { "name": "cmin", "allowUnsafeAccess": true },
+      { "name": "cmax", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$Dollar",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "java.util.regex.Pattern$GroupCurly",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "atom", "allowUnsafeAccess": true },
+      { "name": "cmin", "allowUnsafeAccess": true },
+      { "name": "cmax", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$GroupHead",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "localIndex", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$GroupTail",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "localIndex", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$LastNode",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "java.util.regex.Pattern$Loop",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "body", "allowUnsafeAccess": true },
+      { "name": "cmin", "allowUnsafeAccess": true },
+      { "name": "cmax", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$Prolog",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "loop", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$Ques",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "atom", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$Slice",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "buffer", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$Start",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "java.util.regex.Pattern$StartS",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true
+  },
+  {
+    "name": "java.util.regex.Pattern$BmpCharProperty",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "predicate", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$BmpCharPropertyGreedy",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "predicate", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$CharProperty",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "predicate", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$CharPropertyGreedy",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "predicate", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$1",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "lower", "allowUnsafeAccess": true },
+      { "name": "upper", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$2",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "lower", "allowUnsafeAccess": true },
+      { "name": "upper", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$5",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "ranges", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "java.util.regex.Pattern$6",
+    "allDeclaredFields": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      { "name": "lower", "allowUnsafeAccess": true },
+      { "name": "upper", "allowUnsafeAccess": true }
+    ]
+  },
+  {
+    "name": "com.bee.Node",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Begin",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.BnM",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Branch",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.BranchConn",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Curly",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Dollar",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.GroupCurly",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.GroupHead",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.GroupTail",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.LastNode",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Loop",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Prolog",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Ques",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Range",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.SquareBracketRange",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Slice",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Start",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.StartS",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.BmpCharProperty",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.BmpCharPropertyGreedy",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.CharProperty",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.CharPropertyGreedy",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "com.bee.Bee",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  }
+]
