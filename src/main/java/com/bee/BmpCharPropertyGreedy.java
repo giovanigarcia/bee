@@ -23,17 +23,36 @@ public class BmpCharPropertyGreedy extends Node {
         Field cminField = getFieldFromClass("cmin", originalNode.getClass());
         int cmin = ((Number) cminField.get(this.originalNode)).intValue();
 
-        // Find the 'is' method
+        // Find a method that tests if a character matches
+        // Look for any method with signature: boolean method(int)
         Method isMethod = null;
+
+        // Try public methods first
         for (Method m : predicate.getClass().getMethods()) {
-            if (m.getName().equals("is") && m.getParameterCount() == 1) {
-                isMethod = m;
-                break;
+            if (m.getParameterCount() == 1 && m.getReturnType() == boolean.class) {
+                Class<?> paramType = m.getParameterTypes()[0];
+                if (paramType == int.class || paramType == Integer.class) {
+                    isMethod = m;
+                    break;
+                }
+            }
+        }
+
+        // If not found, try declared methods
+        if (isMethod == null) {
+            for (Method m : predicate.getClass().getDeclaredMethods()) {
+                if (m.getParameterCount() == 1 && m.getReturnType() == boolean.class) {
+                    Class<?> paramType = m.getParameterTypes()[0];
+                    if (paramType == int.class || paramType == Integer.class) {
+                        isMethod = m;
+                        break;
+                    }
+                }
             }
         }
 
         if (isMethod == null) {
-            throw new Exception("Could not find 'is' method on CharPredicate");
+            throw new Exception("Could not find character test method on CharPredicate");
         }
 
         isMethod.setAccessible(true);

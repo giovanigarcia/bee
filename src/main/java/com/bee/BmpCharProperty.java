@@ -20,24 +20,47 @@ public class BmpCharProperty extends Node {
         Field predicateField = getFieldFromClass("predicate", originalNode.getClass());
         Object predicate = predicateField.get(this.originalNode);
 
-        // Debug: print all available methods
-        System.err.println("DEBUG: Predicate class: " + predicate.getClass().getName());
-        System.err.println("DEBUG: Available methods:");
+        // Find a method that tests if a character matches
+        // Look for any method with signature: boolean method(int)
+        Method isMethod = null;
+
+        // Try public methods first
         for (Method m : predicate.getClass().getMethods()) {
-            System.err.println("  - " + m.getName() + " (" + m.getParameterCount() + " params)");
+            if (m.getParameterCount() == 1 && m.getReturnType() == boolean.class) {
+                Class<?> paramType = m.getParameterTypes()[0];
+                if (paramType == int.class || paramType == Integer.class) {
+                    isMethod = m;
+                    break;
+                }
+            }
         }
 
-        // Find the 'is' method that tests if a character matches
-        Method isMethod = null;
-        for (Method m : predicate.getClass().getMethods()) {
-            if (m.getName().equals("is") && m.getParameterCount() == 1) {
-                isMethod = m;
-                break;
+        // If not found, try declared methods
+        if (isMethod == null) {
+            for (Method m : predicate.getClass().getDeclaredMethods()) {
+                if (m.getParameterCount() == 1 && m.getReturnType() == boolean.class) {
+                    Class<?> paramType = m.getParameterTypes()[0];
+                    if (paramType == int.class || paramType == Integer.class) {
+                        isMethod = m;
+                        break;
+                    }
+                }
             }
         }
 
         if (isMethod == null) {
-            throw new Exception("Could not find 'is' method on CharPredicate");
+            // Debug output
+            System.err.println("ERROR: Could not find character test method");
+            System.err.println("Predicate class: " + predicate.getClass().getName());
+            System.err.println("Public methods:");
+            for (Method m : predicate.getClass().getMethods()) {
+                System.err.println("  " + m.getName() + "(" + java.util.Arrays.toString(m.getParameterTypes()) + ") -> " + m.getReturnType());
+            }
+            System.err.println("Declared methods:");
+            for (Method m : predicate.getClass().getDeclaredMethods()) {
+                System.err.println("  " + m.getName() + "(" + java.util.Arrays.toString(m.getParameterTypes()) + ") -> " + m.getReturnType());
+            }
+            throw new Exception("Could not find character test method on CharPredicate");
         }
 
         isMethod.setAccessible(true);
