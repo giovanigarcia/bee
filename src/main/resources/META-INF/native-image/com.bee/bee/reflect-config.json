@@ -2,14 +2,28 @@
   {
     "name": "java.util.regex.Pattern",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "root", "allowUnsafeAccess": true }
     ]
   },
   {
+    "name": "java.util.regex.Pattern$CharPredicate",
+    "allDeclaredMethods": true,
+    "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true
+  },
+  {
+    "name": "java.util.regex.Pattern$BmpCharPredicate",
+    "allDeclaredMethods": true,
+    "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true
+  },
+  {
     "name": "java.util.regex.Pattern$Node",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "next", "allowUnsafeAccess": true }
@@ -18,16 +32,19 @@
   {
     "name": "java.util.regex.Pattern$Begin",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true
   },
   {
     "name": "java.util.regex.Pattern$BnM",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true
   },
   {
     "name": "java.util.regex.Pattern$Branch",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "atoms", "allowUnsafeAccess": true },
@@ -38,11 +55,13 @@
   {
     "name": "java.util.regex.Pattern$BranchConn",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true
   },
   {
     "name": "java.util.regex.Pattern$Curly",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "atom", "allowUnsafeAccess": true },
@@ -53,11 +72,13 @@
   {
     "name": "java.util.regex.Pattern$Dollar",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true
   },
   {
     "name": "java.util.regex.Pattern$GroupCurly",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "atom", "allowUnsafeAccess": true },
@@ -68,6 +89,7 @@
   {
     "name": "java.util.regex.Pattern$GroupHead",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "localIndex", "allowUnsafeAccess": true }
@@ -76,6 +98,7 @@
   {
     "name": "java.util.regex.Pattern$GroupTail",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "localIndex", "allowUnsafeAccess": true }
@@ -84,11 +107,13 @@
   {
     "name": "java.util.regex.Pattern$LastNode",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true
   },
   {
     "name": "java.util.regex.Pattern$Loop",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "body", "allowUnsafeAccess": true },
@@ -99,6 +124,7 @@
   {
     "name": "java.util.regex.Pattern$Prolog",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "loop", "allowUnsafeAccess": true }
@@ -107,6 +133,7 @@
   {
     "name": "java.util.regex.Pattern$Ques",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "atom", "allowUnsafeAccess": true }
@@ -115,6 +142,7 @@
   {
     "name": "java.util.regex.Pattern$Slice",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
     "fields": [
       { "name": "buffer", "allowUnsafeAccess": true }
@@ -123,17 +151,21 @@
   {
     "name": "java.util.regex.Pattern$Start",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true
   },
   {
     "name": "java.util.regex.Pattern$StartS",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true
   },
   {
     "name": "java.util.regex.Pattern$BmpCharProperty",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true,
     "fields": [
       { "name": "predicate", "allowUnsafeAccess": true }
     ]
@@ -141,7 +173,9 @@
   {
     "name": "java.util.regex.Pattern$BmpCharPropertyGreedy",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true,
     "fields": [
       { "name": "predicate", "allowUnsafeAccess": true }
     ]
@@ -149,7 +183,9 @@
   {
     "name": "java.util.regex.Pattern$CharProperty",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true,
     "fields": [
       { "name": "predicate", "allowUnsafeAccess": true }
     ]
@@ -157,7 +193,9 @@
   {
     "name": "java.util.regex.Pattern$CharPropertyGreedy",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true,
     "fields": [
       { "name": "predicate", "allowUnsafeAccess": true }
     ]
@@ -165,7 +203,9 @@
   {
     "name": "java.util.regex.Pattern$1",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true,
     "fields": [
       { "name": "lower", "allowUnsafeAccess": true },
       { "name": "upper", "allowUnsafeAccess": true }
@@ -174,7 +214,9 @@
   {
     "name": "java.util.regex.Pattern$2",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true,
     "fields": [
       { "name": "lower", "allowUnsafeAccess": true },
       { "name": "upper", "allowUnsafeAccess": true }
@@ -183,7 +225,9 @@
   {
     "name": "java.util.regex.Pattern$5",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true,
     "fields": [
       { "name": "ranges", "allowUnsafeAccess": true }
     ]
@@ -191,7 +235,9 @@
   {
     "name": "java.util.regex.Pattern$6",
     "allDeclaredFields": true,
+    "allDeclaredMethods": true,
     "queryAllDeclaredMethods": true,
+    "queryAllPublicMethods": true,
     "fields": [
       { "name": "lower", "allowUnsafeAccess": true },
       { "name": "upper", "allowUnsafeAccess": true }
