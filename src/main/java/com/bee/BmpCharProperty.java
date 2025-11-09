@@ -20,6 +20,13 @@ public class BmpCharProperty extends Node {
         Field predicateField = getFieldFromClass("predicate", originalNode.getClass());
         Object predicate = predicateField.get(this.originalNode);
 
+        // Debug: print all available methods
+        System.err.println("DEBUG: Predicate class: " + predicate.getClass().getName());
+        System.err.println("DEBUG: Available methods:");
+        for (Method m : predicate.getClass().getMethods()) {
+            System.err.println("  - " + m.getName() + " (" + m.getParameterCount() + " params)");
+        }
+
         // Find the 'is' method that tests if a character matches
         Method isMethod = null;
         for (Method m : predicate.getClass().getMethods()) {
